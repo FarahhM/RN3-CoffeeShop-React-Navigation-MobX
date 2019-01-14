@@ -41,11 +41,23 @@ class CoffeeDetail extends Component {
       option: value
     });
   }
-
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: navigation.getParam("coffee").name,
+      headerRight: (
+        <Button
+          transparent
+          light
+          name="cart"
+          onPress={() => navigation.navigate("CoffeeCart")}
+        >
+          <Text>Cart</Text>
+        </Button>
+      )
+    };
+  };
   render() {
-    const coffeeshops = CoffeeStore.coffeeshops;
-    if (!coffeeshops) return <Content />;
-    const coffeeshop = coffeeshops[0];
+    let coffeeshop = this.props.navigation.getParam("coffee");
     return (
       <Content>
         <List>

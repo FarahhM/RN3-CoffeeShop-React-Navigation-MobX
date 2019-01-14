@@ -8,18 +8,19 @@ import { Container, Header } from "native-base";
 import styles from "./styles";
 
 // Components
-import CoffeeList from "../CoffeeList";
-import CoffeeCart from "../CoffeeCart";
-import CoffeeDetail from "../CoffeeDetail";
-import Login from "../Login";
+
+import OurStack from "../Navigation/index";
 
 class HomePage extends Component {
+  static navigationOptions = {
+    title: "Coffee List"
+  };
   render() {
     return (
       <Container style={styles.transparent}>
         <View style={styles.overlay} />
         <Header style={styles.transparent} />
-        <CoffeeCart />
+        <OurStack />
       </Container>
     );
   }

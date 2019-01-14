@@ -21,7 +21,11 @@ class CoffeeItem extends Component {
         <View style={styles.overlay} />
         <ListItem
           button
-          onPress={() => this.handlePress(coffeeShop)}
+          onPress={() =>
+            this.props.navigation.navigate("CoffeeDetail", {
+              coffee: coffeeShop
+            })
+          }
           style={styles.listitem}
         >
           <Card style={styles.transparent}>
